@@ -1,0 +1,68 @@
+@import 'Roboto/fonts.css';
+
+:root{
+/* Color styles */
+--loader-bg: rgba(81, 133, 129, 1);
+--button-primary-bg: rgba(81, 133, 129, 1);
+--button-primary-text: rgba(255, 255, 255, 1);
+--button-secondary-bg: white;
+--button-secondary-text: black;
+--button-secondary-border-color: black;
+--button-primary-bg-hover: rgba(134, 170, 167, 1);
+--button-primary-text-hover: rgba(255, 255, 255, 1);
+--button-primary-bg-disabled: rgba(217, 217, 217, 1);
+--button-primary-text-disabled: rgba(255, 255, 255, 1);
+--button-primary-bg-active: rgba(72, 119, 115, 1);
+--button-primary-text-active: rgba(255, 255, 255, 1);
+--text-primary: rgba(0, 0, 0, 1);
+--text-secondary: rgba(175, 173, 181, 1);
+--text-accent: rgba(81, 133, 129, 1);
+--input-text: rgba(0, 0, 0, 1);
+--input-bg: rgba(255, 255, 255, 1);
+--input-placeholder: rgba(175, 173, 181, 1);
+--input-border: rgba(255, 255, 255, 1);
+--input-bg-focus: rgba(255, 255, 255, 1);
+--input-border-focus: rgba(81, 133, 129, 1);
+--input-text-focus: rgba(0, 0, 0, 1);
+--input-bg-disabled: rgba(255, 255, 255, 1);
+--input-border-disabled: rgba(255, 255, 255, 1);
+--input-text-disabled: rgba(0, 0, 0, 0.20000000298023224);
+--checkbox-bg: rgba(255, 255, 255, 1);
+--checkbox-border: rgba(255, 255, 255, 1);
+--checkbox-bg-hover: rgba(255, 255, 255, 1);
+--checkbox-border-hover: rgba(81, 133, 129, 1);
+--checkbox-bg-disabled: rgba(255, 255, 255, 0.5);
+--checkbox-border-disabled: rgba(255, 255, 255, 0);
+--checkbox-check: rgba(81, 133, 129, 1);
+--checkbox-check-hover: rgba(81, 133, 129, 1);
+--checkbox-check-disabled: rgba(0, 0, 0, 0.20000000298023224);
+--card-image-bg: rgba(217, 217, 217, 1);
+--card-bg: rgba(255, 255, 255, 1);
+--dropdown-options-bg: rgba(255, 255, 255, 1);
+--space-xxs:8px;
+--space-xs:12px;
+--space-s:14px;
+--space-m:16px;
+--space-l:20px;
+--space-xl:24px;
+--shadow:  0px 4px 10px rgba(0, 0, 0, 0.25);
+  --header-bg:white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html{
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  color: unset;
+}

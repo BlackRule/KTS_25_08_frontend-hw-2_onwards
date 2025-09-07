@@ -1,0 +1,15 @@
+.pageNumbers{
+  display: flex;
+}
+.pageNumber{
+  min-width: 38px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected{
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}

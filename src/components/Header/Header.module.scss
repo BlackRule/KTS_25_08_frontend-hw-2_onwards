@@ -1,0 +1,160 @@
+@mixin bottom-line {
+  border-bottom: 1px #F3F3F3 solid;
+}
+
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--header-bg);
+  & a {
+    text-decoration: none;
+  }
+  @media(max-width: 1023px) {
+    border-bottom: 0;
+    padding-top: 20px;
+    margin-bottom: 50px;
+  }
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include bottom-line;
+  @media(max-width: 1023px) {
+    flex-direction: column;
+  }
+}
+
+.logoAndBurger {
+  display: flex;
+  justify-content: space-between;
+  @media(max-width: 1023px) {
+    @include bottom-line;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+}
+
+@mixin burger-line {
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: 0.4s;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6.25px;
+  @media(max-width: 1023px) {
+    display: flex;
+  }
+  width: 35px;
+
+  &::before, &::after {
+    content: '';
+    @include burger-line;
+  }
+
+}
+
+.burger > * {
+  @include burger-line;
+}
+
+#menu__checkbox:checked ~ .logoAndBurger > .burger {
+  & > * {
+    opacity: 0;
+  }
+
+  &::before {
+    transform: rotate(-45deg) translate(-6px, 6px);
+
+  }
+
+  &::after {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+#menu__checkbox {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  @media(max-width: 1023px) {
+    display: none;
+    background-color: var(--header-bg);
+    flex-direction: column;
+    gap: 0;
+    order: 2;
+  }
+}
+
+#menu__checkbox:checked ~ .nav {
+  display: flex;
+}
+
+.nav a {
+  padding: 32px 0 36px 0;
+
+  &.current {
+    color: var(--text-accent);
+    border-bottom: 3px solid var(--text-accent);
+  }
+
+  @media(max-width: 1023px) {
+    padding: 15px 20px;
+    &.current {
+      color: var(--text-accent);
+      border: 3px solid var(--text-accent);
+    }
+  }
+}
+
+@mixin icon() {
+  width: 30px;
+  height: 30px;
+}
+
+.right {
+  display: flex;
+  gap: 24px;
+  @media(max-width: 1023px) {
+    order: 1;
+    display: none;
+  }
+}
+
+#menu__checkbox:checked ~ .right {
+  display: flex;
+}
+
+.bag {
+  @include icon;
+  background-image: url('./img/bag.svg');
+}
+
+.user {
+  @include icon;
+  background-image: url('./img/user.svg');
+}
+
+
+

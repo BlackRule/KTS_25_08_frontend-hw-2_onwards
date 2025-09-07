@@ -1,4 +1,4 @@
-.Card{
+.card{
   $length: 348px;/*оказалось что нужно поставить ширину карточки в 348 вместо 360 как в макете и тогда смещения нет.*/
   display: flex;
   color: var(--text-primary);
@@ -15,7 +15,7 @@
   }
 
 }
-.CardText{
+.card__text{
   display: flex;
   flex-direction: column;
   gap: var(--space-xxs);
@@ -26,7 +26,7 @@
 .caption{
   color: var(--text-secondary);
 }
-.CardBottom{
+.card__bottom{
     display: flex;
     justify-content: space-between;
     align-items: center;

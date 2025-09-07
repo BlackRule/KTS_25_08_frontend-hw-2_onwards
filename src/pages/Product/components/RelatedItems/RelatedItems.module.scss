@@ -1,0 +1,26 @@
+.txt{
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+  margin-top: 50px;
+}
+.grid{
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  & a{
+    text-decoration: none;
+  }
+  @media(max-width: 1023px){
+    gap: 15px;
+  }
+
+}
+@media(min-width: 1025px) {
+  .grid>:nth-child(4) {
+    display: none;
+  }
+}

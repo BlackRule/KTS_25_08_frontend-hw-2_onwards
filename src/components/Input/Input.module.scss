@@ -1,11 +1,15 @@
-.Input{
+.input{
   height: 52px;
   display: flex;
   padding: var(--space-s) var(--space-xs);
   border: 1px solid transparent;
   background-color: var(--input-bg);
   color: var(--input-text);
+  &:has(input:focus){
+    outline:1px solid var(--input-border-focus);
+  }
   &>input{
+    outline: none;
     flex-grow: 1;
     border: 0;
     font-size: 1rem;
