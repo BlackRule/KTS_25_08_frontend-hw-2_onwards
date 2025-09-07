@@ -1,0 +1,37 @@
+.Card{
+  $length: 348px;/*оказалось что нужно поставить ширину карточки в 348 вместо 360 как в макете и тогда смещения нет.*/
+  display: flex;
+  color: var(--text-primary);
+  flex-direction: column;
+  width: $length;
+  padding-bottom: var(--space-xl);
+  background-color: var(--card-bg);
+  &>img{
+    background-color: var(--card-image-bg);
+    height: $length;
+  }
+  &:hover{
+    box-shadow: var(--shadow);
+  }
+
+}
+.CardText{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  margin: var(--space-xs);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-l);
+}
+.caption{
+  color: var(--text-secondary);
+}
+.CardBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 var(--space-xs);
+}
+.contentSlot{
+  font-weight: bold;
+}

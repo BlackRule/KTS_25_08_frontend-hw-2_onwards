@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './Input.module.scss'
+import classNames from "classnames";
 
 export type InputProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -13,6 +15,9 @@ export type InputProps = Omit<
 };
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  () => null);
+  ({onChange,afterSlot,className,onClick,...props},ref) => <div onClick={onClick} className={classNames(className,styles.Input)}>
+    <input {...props} type="text" onChange={(e)=>onChange(e.target.value)} ref={ref}/>
+    {afterSlot}
+  </div>)
 
 export default Input;

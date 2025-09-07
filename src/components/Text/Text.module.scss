@@ -1,0 +1,44 @@
+.Text{
+  display: block;
+  overflow: hidden;
+  //line-height: 1.25em;
+  //text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  //word-break: break-all;
+  overflow-wrap: anywhere;
+  &:global(.vtitle){
+    font-size: 44px;
+    font-weight: bold;
+  }
+  &:global(.vp-20){
+    font-size: 20px;
+  }
+  &:global(.vp-18),&:global(.vbutton){
+    font-size: 18px;
+  }
+  &:global(.vp-16){
+    font-size: 16px;
+  }
+  &:global(.vp-14){
+    font-size: 14px;
+  }
+  &:global(.wnormal){
+    font-weight: normal;
+  }
+  &:global(.wmedium){
+    font-weight: 500;
+  }
+  &:global(.wbold){
+    font-weight: bold;
+  }
+  &:global(.cprimary){
+    color: var(--text-primary);
+  }
+  &:global(.csecondary){
+    color: var(--text-secondary);
+  }
+  &:global(.caccent){
+    color: var(--text-accent);
+  }
+}

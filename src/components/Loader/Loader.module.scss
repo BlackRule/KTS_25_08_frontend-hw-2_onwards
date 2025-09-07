@@ -1,0 +1,8 @@
+.Loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & svg{
+    fill:var(--loader-bg)
+  }
+}
