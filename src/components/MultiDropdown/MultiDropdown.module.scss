@@ -1,9 +1,10 @@
-.multi-dropdown{
+@import "styles/common";
+.multiDropdown{
     text-align: center;
     &.isOpen {
         position: relative;
         &> :first-child {
-            border: 1px solid var(--input-border-focus);
+            border: 1px solid $input-border-focus;
         }
     }
     padding: 0;
@@ -21,22 +22,22 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: var(--dropdown-options-bg);
-    color: var(--input-text);
-    box-shadow: var(--shadow);
-    transform: translateY(calc(var(--space-xxs) + 100%));
+    background-color: $dropdown-options-bg;
+    color: $input-text;
+    box-shadow: $shadow;
+    transform: translateY(calc($space-xxs + 100%));
 }
 
 .option{
     height: 48px;
     display: flex;
     align-items: center;
-    padding: var(--space-s) var(--space-xs);
+    padding: $space-s $space-xs;
     &:hover{
-        color: var(--text-secondary);
+        color: $text-secondary;
     }
 }
 
 .selected{
-    color: var(--text-accent);
+    color: $text-accent;
 }

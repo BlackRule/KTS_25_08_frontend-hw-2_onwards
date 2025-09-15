@@ -1,0 +1,75 @@
+@import "styles/common";
+.products{
+  display: flex;
+  flex-direction: column;
+}
+.products,.pagePadding{
+  background-color: #FAFAFA;
+}
+.pagePadding{
+  padding-top: 100px;
+}
+.products{
+  margin-bottom: 20px;
+  align-self: center;
+  text-align: center;
+  @media(max-width: 1023px){
+    font-size: 26px;
+  }
+}
+.p1{
+  align-self: center;
+  max-width: 640px;
+  text-align: center;
+  margin-bottom: 80px;
+  @media(max-width: 1023px){
+    font-size: 14px;
+  }
+}
+.searchBar{
+  display: flex;
+  gap: $space-xl;
+  margin-bottom: $space-xl;
+  @media(max-width: 1023px){
+    font-size: 18px;
+  }
+
+}
+.searchBar__input{
+  flex-grow: 1;
+}
+.filter{
+ align-self: flex-start;
+}
+.totalProducts{
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  margin: 50px 0;
+}
+.totalProducts__txt{
+  font-weight: 700;
+  font-size: 44px;
+  @media(max-width: 1023px){
+    font-size: 18px;
+  }
+}
+.totalProducts__count{
+  padding: 5px 16px;
+  background: #F9F9F9;
+  border-radius: 20px;
+  color: $text-accent;
+  font-weight: 700;
+}
+.productsGrid{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+  & a{
+    text-decoration: none;
+  }
+  @media(max-width: 1023px){
+    gap: 15px;
+  }
+}

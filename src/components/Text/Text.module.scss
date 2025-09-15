@@ -1,4 +1,5 @@
-.Text{
+@import "styles/common";
+.text{
   display: block;
   overflow: hidden;
   //line-height: 1.25em;
@@ -33,12 +34,12 @@
     font-weight: bold;
   }
   &:global(.cprimary){
-    color: var(--text-primary);
+    color: $text-primary;
   }
   &:global(.csecondary){
-    color: var(--text-secondary);
+    color: $text-secondary;
   }
   &:global(.caccent){
-    color: var(--text-accent);
+    color: $text-accent;
   }
 }

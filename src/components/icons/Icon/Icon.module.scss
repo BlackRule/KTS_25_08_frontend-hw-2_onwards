@@ -1,23 +1,24 @@
-.Icon{
+@import "styles/common";
+.icon{
   display: flex;
   justify-content: center;
   align-items: center;
   & :global(.fill):global(.primary){
-    fill: var(--text-primary);
+    fill: $text-primary;
   }
   & :global(.fill):global(.secondary){
-    fill: var(--text-secondary);
+    fill: $text-secondary;
   }
   & :global(.fill):global(.accent){
-    fill: var(--text-accent);
+    fill: $text-accent;
   }
   & :global(.stroke):global(.primary){
-    stroke: var(--text-primary);
+    stroke: $text-primary;
   }
   & :global(.stroke):global(.secondary){
-    stroke: var(--text-secondary);
+    stroke: $text-secondary;
   }
   & :global(.stroke):global(.accent){
-    stroke: var(--text-accent);
+    stroke: $text-accent;
   }
 }

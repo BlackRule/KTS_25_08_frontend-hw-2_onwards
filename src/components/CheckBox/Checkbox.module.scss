@@ -1,7 +1,7 @@
-.Checkbox{
+.checkbox{
   display: flex;
-  background-color: var(--checkbox-bg);
-  box-shadow: inset 0 0 0 1px var(--checkbox-border);
+  background-color: $checkbox-bg;
+  box-shadow: inset 0 0 0 1px $checkbox-border;
   width: 40px;
   height: 40px;
   &>input{
@@ -11,17 +11,17 @@
     }
   }
   &:hover{
-    background-color: var(--checkbox-bg-hover);
-  box-shadow: inset 0 0 0 1px var(--checkbox-border-hover);
+    background-color: $checkbox-bg-hover;
+  box-shadow: inset 0 0 0 1px $checkbox-border-hover;
 
   }
 
   &.disabled{
-    background-color: var(--checkbox-bg-disabled);
-      box-shadow: inset 0 0 0 1px var(--checkbox-border-disabled);
+    background-color: $checkbox-bg-disabled;
+      box-shadow: inset 0 0 0 1px $checkbox-border-disabled;
 
     &>:nth-child(2)>:first-child{
-      stroke: var(--checkbox-check-disabled);
+      stroke: $checkbox-check-disabled;
     }
   }
 }

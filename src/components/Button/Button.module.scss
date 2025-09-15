@@ -1,34 +1,53 @@
-.Button{
+@import "styles/common";
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-xxs);
+  gap: $space-xxs;
   font-size: 18px;
-  padding: var(--space-s) var(--space-l);
+  padding: $space-s $space-l;
   border: 0;
-  background: var(--button-primary-bg);
-  $c: var(--button-primary-text);
-  color: $c;
-  & svg{
+
+  &.disabled {
+    background: $button-primary-bg-disabled;
+    $c: $button-primary-text-disabled;
+    color: $c;
+
+    &, & svg {
       fill: $c !important;
     }
-  &.disabled{
-    background: var(--button-primary-bg-disabled);
-    $c:var(--button-primary-text-disabled);
-    color: $c;
-    &, & svg{
-      fill: $c!important;
-    }
   }
-  &:not(.disabled):not(.loading):hover{
-    background: var(--button-primary-bg-hover);
-    $c:var(--button-primary-text-hover);
+
+  &:not(.disabled):not(.loading):hover {
+    background: $button-primary-bg-hover;
+    $c: $button-primary-text-hover;
     color: $c;
-    &, & svg{
-      fill: $c!important;
+
+    &, & svg {
+      fill: $c !important;
     }
   }
 
 
+}
 
+.buttonSkin_primary {
+  background: $button-primary-bg;
+  $c: $button-primary-text;
+  color: $c;
+
+  & svg {
+    fill: $c !important;
+  }
+}
+
+.buttonSkin_secondary {
+  background: $button-secondary-bg;
+  $c: $button-secondary-text;
+  color: $c;
+
+  & svg {
+    fill: $c !important;
+  }
+  border: 1px solid $button-secondary-border-color;
 }
