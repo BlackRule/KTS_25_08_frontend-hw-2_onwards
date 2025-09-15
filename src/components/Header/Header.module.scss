@@ -1,3 +1,4 @@
+@import "styles/common";
 @mixin bottom-line {
   border-bottom: 1px #F3F3F3 solid;
 }
@@ -6,7 +7,7 @@
 .header {
   position: sticky;
   top: 0;
-  background-color: var(--header-bg);
+  background-color: $header-bg;
   & a {
     text-decoration: none;
   }
@@ -100,7 +101,7 @@
   align-items: center;
   @media(max-width: 1023px) {
     display: none;
-    background-color: var(--header-bg);
+    background-color: $header-bg;
     flex-direction: column;
     gap: 0;
     order: 2;
@@ -115,15 +116,15 @@
   padding: 32px 0 36px 0;
 
   &.current {
-    color: var(--text-accent);
-    border-bottom: 3px solid var(--text-accent);
+    color: $text-accent;
+    border-bottom: 3px solid $text-accent;
   }
 
   @media(max-width: 1023px) {
     padding: 15px 20px;
     &.current {
-      color: var(--text-accent);
-      border: 3px solid var(--text-accent);
+      color: $text-accent;
+      border: 3px solid $text-accent;
     }
   }
 }

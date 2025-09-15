@@ -1,3 +1,4 @@
+@import "styles/common";
 .pageNumbers{
   display: flex;
 }
@@ -10,6 +11,6 @@
 }
 
 .selected{
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-text);
+  background-color: $button-primary-bg;
+  color: $button-primary-text;
 }

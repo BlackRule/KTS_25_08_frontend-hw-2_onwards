@@ -1,3 +1,4 @@
+@import "styles/common";
 .products{
   display: flex;
   flex-direction: column;
@@ -27,8 +28,8 @@
 }
 .searchBar{
   display: flex;
-  gap: var(--space-xl);
-  margin-bottom: var(--space-xl);
+  gap: $space-xl;
+  margin-bottom: $space-xl;
   @media(max-width: 1023px){
     font-size: 18px;
   }
@@ -57,7 +58,7 @@
   padding: 5px 16px;
   background: #F9F9F9;
   border-radius: 20px;
-  color: var(--text-accent);
+  color: $text-accent;
   font-weight: 700;
 }
 .productsGrid{

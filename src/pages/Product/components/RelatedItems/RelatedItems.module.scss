@@ -1,9 +1,10 @@
+@import "styles/common";
 .txt{
   font-weight: 700;
   font-size: 32px;
   line-height: 42px;
   letter-spacing: 0.01em;
-  color: var(--text-primary);
+  color: $text-primary;
   margin-top: 50px;
 }
 .grid{
