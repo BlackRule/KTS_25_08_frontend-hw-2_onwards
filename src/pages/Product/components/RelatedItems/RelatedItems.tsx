@@ -1,36 +1,40 @@
-import {HTMLAttributes, useEffect, useState} from 'react'
+import {observer} from 'mobx-react-lite'
+import {HTMLAttributes, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import * as PostService from 'api/ProductService'
-import {Product} from 'api/ProductService'
+import {Product} from 'api'
+
 import Button from 'components/Button'
 import Card from 'components/Card'
-import {ProductModelToCardProps} from '../../../common.ts'
+import Loader from 'components/Loader'
+import {ProductModelToCardProps} from 'pages/common'
+import {RelatedItemsStore} from 'stores'
+import {useLocalStore} from 'utils/useLocalStore'
 import styles from './RelatedItems.module.scss'
 
 type RelatedItemsProps = React.PropsWithChildren<{
-    category:Product['category']
+  product:Product;
 }> & HTMLAttributes<HTMLDivElement>;
 
-const RelatedItems=({category}:RelatedItemsProps)=>{
-  const [products, setProducts] = useState<Product[]>()
-
+const RelatedItems=({product}:RelatedItemsProps)=>{
+  const relatedItemsStore = useLocalStore(() => new RelatedItemsStore())
   useEffect(() => {
-    PostService.getProductsResponse(category.id,3).then((response)=>setProducts(response.data))
-  }, [])
+    relatedItemsStore.get(product)
+  }, [product, relatedItemsStore])
+  const relatedItems = relatedItemsStore.list
   return (
-    <section className={styles.RelatedItems}>
+    <section className={styles.relatedItems}>
       <div className={styles.txt}>Related Items</div>
       <div className={styles.grid}>
-        {products?
-          products.map((product) =>
+        {relatedItems?.state==='fulfilled'?
+          relatedItems.value.map((product) =>
             (<Link key={product.id} to={`/product/${product.id}`}>
               <Card {...ProductModelToCardProps(product)} actionSlot={<Button>Add to Cart</Button>}/>
             </Link>)
-          ):null
+          ):<Loader/>
         }
       </div>
     </section>
   )
 }
 
-export default RelatedItems
+export default observer(RelatedItems)

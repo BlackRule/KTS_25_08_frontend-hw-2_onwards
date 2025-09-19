@@ -1,4 +1,4 @@
-@import "styles/common";
+ @use "styles/common" as *;
 .txt{
   font-weight: 700;
   font-size: 32px;

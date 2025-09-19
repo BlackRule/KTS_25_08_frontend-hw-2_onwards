@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import {RefObject, useEffect, useRef, useState} from 'react'
+import Loader from 'components/Loader'
 import Input from '../Input'
 import ArrowDownIcon from '../icons/ArrowDownIcon'
 import styles from './MultiDropdown.module.scss'
@@ -33,6 +34,7 @@ export type MultiDropdownProps = {
   disabled?: boolean;
   /** Возвращает строку которая будет выводится в инпуте. В случае если опции не выбраны, строка должна отображаться как placeholder. */
   generateValueElement: (value: Option[]) => string;
+  loading: boolean;
   /** Callback, вызываемый при выборе варианта */
   onChange: (value: Option[]) => void;
   /** Массив возможных вариантов для выбора */
@@ -47,6 +49,7 @@ export const MultiDropdown = ({
   onChange,
   generateValueElement,
   disabled = false,
+  loading=false,
   ...props
 }: MultiDropdownProps) => {
   const [text, setText] = useState('')
@@ -60,8 +63,10 @@ export const MultiDropdown = ({
   const ref = useRef<HTMLDivElement>(null)
   useClickOutside(ref, () => setIsOpen(false))
   useEffect( () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     disabled && setIsOpen(false)
   },[disabled])
+  disabled||=loading
   return (
     <div ref={ref}
       {...props}
@@ -71,7 +76,7 @@ export const MultiDropdown = ({
       <Input
         placeholder={generateValueElement(value)}
         value={isOpen&&text!=='' ? text : (value.length===0?'':generateValueElement(value))}
-        onChange={setText} afterSlot={<ArrowDownIcon color={'secondary'}/>}
+        onChange={setText} afterSlot={/*todo design*/loading?<Loader/>:<ArrowDownIcon color={'secondary'}/>}
       />
       {isOpen ? (
         <div className={cn(styles.optionsParent)}>

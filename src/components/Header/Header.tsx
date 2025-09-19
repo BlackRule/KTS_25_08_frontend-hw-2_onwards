@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import PagePadding from 'components/PagePadding'
 import logo from './img/logo.svg'
 import styles from './Header.module.scss'
-
+const user=null /*TODO */
 
 const Header = () => {
   return <header className={styles.header}>
@@ -22,7 +22,7 @@ const Header = () => {
       </nav>
       <div className={styles.right}>
         <Link to={'#'} className={styles.bag}/>
-        <Link to={'#'} className={styles.user}/>
+        <Link to={user === null ?'/login':'/user'} className={styles.user}/>
       </div>
     </PagePadding>
   </header>

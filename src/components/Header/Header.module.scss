@@ -1,4 +1,4 @@
-@import "styles/common";
+ @use "styles/common" as *;
 @mixin bottom-line {
   border-bottom: 1px #F3F3F3 solid;
 }
@@ -32,7 +32,6 @@
   display: flex;
   justify-content: space-between;
   @media(max-width: 1023px) {
-    @include bottom-line;
     padding-bottom: 15px;
     margin-bottom: 5px;
     width: 100%;

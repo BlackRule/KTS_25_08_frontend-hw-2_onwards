@@ -36,3 +36,5 @@ export default {
 Eslint'ом всё сортируется для удобства отслеживания изменений
 
 Prettier не используется. По крайней мере пока https://antfu.me/posts/why-not-prettier настраивать его не хочу. Хватает eslint
+
+Alert из @mui/material в \src\pages\LoginSignup\LoginSignup.tsx
