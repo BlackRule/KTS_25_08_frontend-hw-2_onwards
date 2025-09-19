@@ -3,29 +3,29 @@ import Text from '../Text'
 import styles from './Card.module.scss'
 
 export type CardProps = {
-    /*+*/
+  /*+*/
 /** Слот для действия */
-    actionSlot?: React.ReactNode;
-    /*+*/
-/** Слот над заголовком */
-    captionSlot?: React.ReactNode;
-    /** Дополнительный classname */
-    className?: string;
-    /*+*/
-/** Содержимое карточки (футер/боковая часть), может быть пустым */
-    contentSlot?: React.ReactNode;
-    /*+*/
-/** Описание карточки */
-    description: React.ReactNode;
-    /*+*/
-/** URL изображения */
-    image: string;
-    /*+*/
-/** Клик на карточку */
-    onClick?: React.MouseEventHandler;
-    /*+*/
-/** Заголовок карточки */
-    title: React.ReactNode;/*+*/
+  actionSlot?: React.ReactNode;
+  /*+*/
+  /** Слот над заголовком */
+  captionSlot?: React.ReactNode;
+  /** Дополнительный classname */
+  className?: string;
+  /*+*/
+  /** Содержимое карточки (футер/боковая часть), может быть пустым */
+  contentSlot?: React.ReactNode;
+  /*+*/
+  /** Описание карточки */
+  description: React.ReactNode;
+  /*+*/
+  /** URL изображения */
+  image: string;
+  /*+*/
+  /** Клик на карточку */
+  onClick?: React.MouseEventHandler;
+  /*+*/
+  /** Заголовок карточки */
+  title: React.ReactNode;/*+*/
 };
 
 const Card: React.FC<CardProps> = (props) => <div className={cn(props.className,styles.card)} onClick={props.onClick}>

@@ -2,9 +2,9 @@ import { debounce } from 'lodash'
 import { useEffect, useState } from 'react'
 
 export interface Size {
-    //TODO  | undefined google for it with SSR
-    height: number; 
-    width: number;
+  //TODO  | undefined google for it with SSR
+  height: number; 
+  width: number;
 }
 
 const getWindowDimensions = ():Size => {

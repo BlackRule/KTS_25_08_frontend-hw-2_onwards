@@ -1,17 +1,24 @@
 import {HTMLAttributes} from 'react'
-import {Product as ProductModel} from 'api/ProductService'
+import {Carousel} from 'react-responsive-carousel'
+import {Product as ProductModel} from 'api'
 import Button from 'components/Button'
 import Text from 'components/Text'
 import styles from './Product.module.scss'
 
 type ProductProps = React.PropsWithChildren<{
-    product:ProductModel
+  product:ProductModel
 }> & HTMLAttributes<HTMLDivElement>;
 
 const Product=({product}:ProductProps)=>{
   return (
-    <section className={styles.Product}>
-      <img src={product.images[0]} className={styles.img}/>
+    <section className={styles.product}>
+      <Carousel showArrows={true} swipeable useKeyboardArrows emulateTouch /*className={styles.img}*/>
+        {product.images.map((img) =>
+          <div key={img}>
+            <img src={img}/>
+          </div>
+        )}
+      </Carousel>
       <div>
         <Text view={'title'} className={styles.title}>{product.title}</Text>
         <Text view={'p-20'} color={'secondary'} className={styles.description}>

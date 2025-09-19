@@ -1,4 +1,10 @@
-.product{
+@use "styles/common" as *;
+.back{
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: $space-s;
+  padding: $space-xxs;
+  text-decoration: none;
+  margin-top: 60px;
+  margin-bottom: 32px;
 }
