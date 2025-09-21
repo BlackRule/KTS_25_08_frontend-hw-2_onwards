@@ -11,17 +11,19 @@ const Filter = ({ selectedOptions, onChange, ...props }: FilterProps) => {
   const categoriesStore = useLocalStore(() => new CategoriesStore())
   useEffect(()=>categoriesStore.get(),[categoriesStore])
 
+  const options = (categoriesStore.categories?.state==='fulfilled' ? categoriesStore.categories.value : []).map(categoriesToOptions)
+  const displaySelected = selectedOptions.map((opt) => options.find(o => o.key === opt.key) || opt)
   return (
     <MultiDropdown
       onChange={(v) => {
         onChange(v)
       }}
-      options={(categoriesStore.categories?.state==='fulfilled'?categoriesStore.categories.value:[]).map(categoriesToOptions)}
-      value={selectedOptions}
+      options={options}
+      value={displaySelected}
 
       {...props}
       loading={categoriesStore.categories?.state==='pending'}
-      generateValueElement={()=>'Filter'}
+      generateValueElement={(vals)=> vals.length ? vals.map(v=>v.value).join(', ') : 'Filter'}
     />
   )
 }

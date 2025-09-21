@@ -5,22 +5,19 @@ import Loader from 'components/Loader'
 import PagePadding from 'components/PagePadding/PagePadding'
 import {ProductStore} from 'stores'
 import { useLocalStore } from 'utils/useLocalStore'
+import {ROUTES_URLparams_TYPES_product} from '../../config/routes'
 import Product from './components/Product/Product'
 import RelatedItems from './components/RelatedItems/RelatedItems'
 import icon from './img/left_black.svg'
 import styles from './Product.module.scss'
 
 const ProductPage = () => {
-  const URLparams = useParams() as unknown as { id: string | undefined }
+  const URLparams = useParams() as ROUTES_URLparams_TYPES_product
   const navigate = useNavigate()
   const productStore = useLocalStore(() => new ProductStore())
   const location = useLocation()
   useEffect(() => {
-    if (typeof URLparams.id !== 'string') {
-      navigate('/')
-    } else {
-      productStore.get(URLparams.id)
-    }
+    productStore.get(URLparams.id)
   }, [productStore, location, URLparams.id, navigate])
 
   const { product } = productStore

@@ -6,6 +6,8 @@ $button-secondary-text: black;
 $button-secondary-border-color: black;
 $button-primary-bg-hover: rgba(134, 170, 167, 1);
 $button-primary-text-hover: rgba(255, 255, 255, 1);
+$button-secondary-bg-hover: rgba(89, 104, 103, 0.25);
+$button-secondary-text-hover: rgb(0, 0, 0);
 $button-primary-bg-disabled: rgba(217, 217, 217, 1);
 $button-primary-text-disabled: rgba(255, 255, 255, 1);
 $button-primary-bg-active: rgba(72, 119, 115, 1);
@@ -43,3 +45,9 @@ $space-l: 20px;
 $space-xl: 24px;
 $shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 $header-bg: white;
+
+// Breakpoints
+$bp-phone-sm: 444px;
+$bp-phone: 560px;
+$bp-tablet: 1023px;
+$bp-desktop: 1200px;

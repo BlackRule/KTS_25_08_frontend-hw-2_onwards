@@ -1,14 +1,16 @@
+export type Language = 'en' | 'ru'
+
 export const translation={
   en: {
+    'Invalid identifier or password':'Invalid login credentials',
     TodoList:'Todo list',
     add_image:'Add image',
     add_task:'Add task',
     add_todo:'add todo',
-    alexProject:'Alexander Bortulev\'s  project',
     'auth/email-already-in-use':'Email already in use',
-    'auth/invalid-login-credentials':'Invalid login credentials',
     delete:'delete',
     email:'Email',
+    login_label:'Login',
     forgot_password:'Forgot password?',
     haveAcc:'Already have an account?',
     language: 'language',
@@ -26,11 +28,11 @@ export const translation={
     add_image:'Добавить изображение',
     add_task:'Добавить задачу',
     add_todo:'добавить задачу',
-    alexProject:'проект Бортулева Александра',
     'auth/email-already-in-use':'Этот адрес электронной почты уже занят',
     'auth/invalid-login-credentials':'Неверные логин или пароль',
     delete:'удалить',
     email:'Эл. почта',
+    login_label:'Логин',
     forgot_password:'Забыли пароль?',
     haveAcc:'Уже есть аккаунт?',
     language: 'язык',
@@ -44,4 +46,4 @@ export const translation={
     todo_text:'Текст задачи'
   }
 
-}
+} as Record<Language, Record<string, string>>

@@ -4,6 +4,7 @@ import {Product as ProductModel} from 'api'
 import Button from 'components/Button'
 import Text from 'components/Text'
 import styles from './Product.module.scss'
+import rootStore from 'stores/RootStore'
 
 type ProductProps = React.PropsWithChildren<{
   product:ProductModel
@@ -27,7 +28,7 @@ const Product=({product}:ProductProps)=>{
         <Text className={styles.price} weight={'bold'} view={'title'}>${product.price}</Text>
         <Text className={styles.buttons}>
           <Button>Buy Now</Button>
-          <Button skin={'secondary'}>Add to Chart</Button>
+          <Button skin={'secondary'} onClick={()=> rootStore.cart.add(product)}>Add to Cart</Button>
         </Text>
       </div>
     </section>

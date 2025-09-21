@@ -1,7 +1,7 @@
 import {action, computed, makeObservable, observable, reaction, runInAction} from 'mobx'
 import {fromPromise} from 'mobx-utils'
-import {Category, getProducts, Product} from 'api'
-import {ELEMENTS_PER_PAGE} from '../config/config'
+import {getProducts, Product} from 'api'
+import {ELEMENTS_PER_PAGE, QUERY_PARAMS} from '../config/config'
 import {log} from '../utils/console'
 import {LoadingState} from '../utils/loadingState'
 import {ILocalStore} from '../utils/useLocalStore'
@@ -80,9 +80,6 @@ export default class ProductsStore implements ILocalStore {
   get pagedList() {
     const list = this.searchFilteredList
     const pn = this.pageNumber
-    if (!list) {
-      return list
-    }
     return list.slice(
       pn * ELEMENTS_PER_PAGE,
       pn * ELEMENTS_PER_PAGE + ELEMENTS_PER_PAGE
@@ -90,20 +87,20 @@ export default class ProductsStore implements ILocalStore {
   }
 
   private readonly _scReaction = reaction(
-    () => rootStore.query.getParam('sc'),
+    () => rootStore.query.getParam(QUERY_PARAMS.selectedCategory),
     (sc) => {
       this.selectedCategories = (sc as string[]) || []
     }
   )
 
   private readonly _qReaction = reaction(
-    () => rootStore.query.getParam('q'),
+    () => rootStore.query.getParam(QUERY_PARAMS.query),
     (q) => {
       this.query = (q as string) || ''
     }
   )
   private readonly _pReaction = reaction(
-    () => rootStore.query.getParam('p'),
+    () => rootStore.query.getParam(QUERY_PARAMS.page),
     (pp) => {
       const p = parseInt(pp as string) - 1
       this.pageNumber = p >= 0 ? p : 0

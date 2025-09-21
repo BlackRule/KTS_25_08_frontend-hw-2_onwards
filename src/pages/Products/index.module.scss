@@ -2,24 +2,20 @@
 .products{
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
+  align-self: center;
+  text-align: center;
 }
 .pagePadding{
   padding-top: 100px;
 }
-.products{
-  margin-bottom: 20px;
-  align-self: center;
-  text-align: center;
-  @media(max-width: 1023px){
-    font-size: 26px;
-  }
-}
+
 .p1{
   align-self: center;
   max-width: 640px;
   text-align: center;
   margin-bottom: 80px;
-  @media(max-width: 1023px){
+  @media (max-width: $bp-tablet) {
     font-size: 14px;
   }
 }
@@ -36,7 +32,7 @@
 .totalProducts__txt{
   font-weight: 700;
   font-size: 44px;
-  @media(max-width: 1023px){
+  @media (max-width: $bp-tablet) {
     font-size: 18px;
   }
 }
@@ -53,7 +49,10 @@
   & a{
     text-decoration: none;
   }
-  @media(max-width: 1023px){
+  @media (max-width: $bp-tablet) {
     gap: 15px;
   }
+}
+.product{
+  height: 100%;
 }

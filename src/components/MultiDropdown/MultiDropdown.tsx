@@ -72,7 +72,7 @@ export const MultiDropdown = ({
       {...props}
       className={cn('multiDropdown', styles.multiDropdown, props.className,
         {[styles.isOpen]:isOpen})}
-      onClick={(e) => !disabled&&setIsOpen(true)} >
+      onClick={() => !disabled&&setIsOpen(true)} >
       <Input
         placeholder={generateValueElement(value)}
         value={isOpen&&text!=='' ? text : (value.length===0?'':generateValueElement(value))}

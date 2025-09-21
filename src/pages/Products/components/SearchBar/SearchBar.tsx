@@ -1,7 +1,9 @@
-import {HTMLAttributes, useState} from 'react'
+import {HTMLAttributes, useMemo, useState} from 'react'
+import { useLocation } from 'react-router-dom'
 import Button from 'components/Button'
 import Input from 'components/Input'
 import useWindowSize from 'hooks/useWindowSize'
+import { QUERY_PARAMS } from 'config/config'
 import styles from './SearchBar.module.scss'
 
 const SearchBar = ({
@@ -9,11 +11,17 @@ const SearchBar = ({
   ...props
 }: HTMLAttributes<HTMLDivElement> & { handleSearch: (v: string) => void }) => {
   const {width}=useWindowSize()
+  const location = useLocation()
+  const urlPlaceholder = useMemo(() => {
+    const params = new URLSearchParams(location.search)
+    const q = params.get(QUERY_PARAMS.query)
+    return q && q.length > 0 ? q : 'Search product'
+  }, [location.search])
   const [value, setValue] = useState('')
   return <div className={styles.searchBar}>
     <Input 
       value={value}
-      placeholder={'Search product'} 
+      placeholder={urlPlaceholder}
       className={styles.searchBar__input}
       onChange={(v) => setValue(v)}
       onKeyDown={(e) => {

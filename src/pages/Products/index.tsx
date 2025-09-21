@@ -12,12 +12,13 @@ import rootStore from 'stores/RootStore'
 import {getNewURLWithUpdatedParamValue} from 'utils/getNewURLWithUpdatedParamValue'
 import {LoadingState} from 'utils/loadingState'
 import {useLocalStore} from 'utils/useLocalStore'
+import {ROUTES} from '../../config/routes'
 import {ProductModelToCardProps} from '../common'
 import Filter from './components/Filter'
 import PageNumbers from './components/PageNumbers'
 import SearchBar from './components/SearchBar/SearchBar'
 import styles from './index.module.scss'
-
+import { QUERY_PARAMS } from 'config/config'
 
 
 const Products = ()=>{
@@ -43,13 +44,13 @@ const Products = ()=>{
         <Text className={styles.p1} tag={'p'} color='secondary' view={'p-20'}>We display products based on the latest
           products we have, if you want
           to see our old products please enter the name of the item</Text>
-        <SearchBar handleSearch={(v) => navigate(getNewURLWithUpdatedParamValue('q', v, params))}/>
+        <SearchBar handleSearch={(v) => navigate(getNewURLWithUpdatedParamValue(QUERY_PARAMS.query, v, params))}/>
 
         <Filter
           className={styles.filter}
           selectedOptions={selectedCategories.map(stringsToOptions)}
           onChange={(opts) => {
-            navigate(getNewURLWithUpdatedParamValue('sc', opts.map(optionsToStrings), params))
+            navigate(getNewURLWithUpdatedParamValue(QUERY_PARAMS.selectedCategory, opts.map(optionsToStrings), params))
           }}
         />
         <div className={styles.totalProducts}>
@@ -61,14 +62,14 @@ const Products = ()=>{
         ) : (
           <div className={styles.productsGrid}>
             {pagedList.map((product) =>
-              (<Link key={product.id} to={`/product/${product.id}`}>
-                <Card {...ProductModelToCardProps(product)} actionSlot={<Button>Add to Cart</Button>}/>
+              (<Link key={product.id} to={ROUTES.product.get(product.id)}>
+                <Card {...ProductModelToCardProps(product)} actionSlot={<Button onClick={(e)=>{e.preventDefault(); e.stopPropagation(); rootStore.cart.add(product);}}>Add to Cart</Button>} className={styles.product}/>
               </Link>)
             ) }
           </div>
         )}
         <PageNumbers 
-          paramName={'p'}
+          paramName={QUERY_PARAMS.page}
           totalPages={totalPages}
           curParams={params}
           currentPage={currentPage}
