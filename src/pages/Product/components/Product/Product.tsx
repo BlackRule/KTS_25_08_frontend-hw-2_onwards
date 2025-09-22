@@ -1,17 +1,25 @@
 import {HTMLAttributes} from 'react'
-import {Product as ProductModel} from 'api/ProductService'
+import {Carousel} from 'react-responsive-carousel'
+import {Product as ProductModel} from 'api'
 import Button from 'components/Button'
 import Text from 'components/Text'
 import styles from './Product.module.scss'
+import rootStore from 'stores/RootStore'
 
 type ProductProps = React.PropsWithChildren<{
-    product:ProductModel
+  product:ProductModel
 }> & HTMLAttributes<HTMLDivElement>;
 
 const Product=({product}:ProductProps)=>{
   return (
-    <section className={styles.Product}>
-      <img src={product.images[0]} className={styles.img}/>
+    <section className={styles.product}>
+      <Carousel showArrows={true} swipeable useKeyboardArrows emulateTouch /*className={styles.img}*/>
+        {product.images.map((img) =>
+          <div key={img}>
+            <img src={img}/>
+          </div>
+        )}
+      </Carousel>
       <div>
         <Text view={'title'} className={styles.title}>{product.title}</Text>
         <Text view={'p-20'} color={'secondary'} className={styles.description}>
@@ -20,7 +28,7 @@ const Product=({product}:ProductProps)=>{
         <Text className={styles.price} weight={'bold'} view={'title'}>${product.price}</Text>
         <Text className={styles.buttons}>
           <Button>Buy Now</Button>
-          <Button skin={'secondary'}>Add to Chart</Button>
+          <Button skin={'secondary'} onClick={()=> rootStore.cart.add(product)}>Add to Cart</Button>
         </Text>
       </div>
     </section>

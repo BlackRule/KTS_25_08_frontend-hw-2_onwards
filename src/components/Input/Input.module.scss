@@ -1,4 +1,4 @@
-@import "styles/common";
+@use "styles/common" as *;
 .input{
   height: 52px;
   display: flex;
@@ -11,6 +11,7 @@
   }
   &>input{
     outline: none;
+    -webkit-text-fill-color: $input-text; /*TODO dark mode*/
     flex-grow: 1;
     border: 0;
     font-size: 1rem;

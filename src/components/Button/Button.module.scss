@@ -1,4 +1,4 @@
-@import "styles/common";
+ @use "styles/common" as *;
 .button {
   display: flex;
   justify-content: center;
@@ -17,17 +17,9 @@
       fill: $c !important;
     }
   }
-
   &:not(.disabled):not(.loading):hover {
-    background: $button-primary-bg-hover;
-    $c: $button-primary-text-hover;
-    color: $c;
-
-    &, & svg {
-      fill: $c !important;
-    }
+    cursor: pointer;
   }
-
 
 }
 
@@ -38,6 +30,16 @@
 
   & svg {
     fill: $c !important;
+  }
+
+  &:not(.disabled):not(.loading):hover {
+    background: $button-primary-bg-hover;
+    $c: $button-primary-text-hover;
+    color: $c;
+
+    &, & svg {
+      fill: $c !important;
+    }
   }
 }
 
@@ -50,4 +52,13 @@
     fill: $c !important;
   }
   border: 1px solid $button-secondary-border-color;
+  &:not(.disabled):not(.loading):hover {
+    background: $button-secondary-bg-hover;
+    $c: $button-secondary-text-hover;
+    color: $c;
+
+    &, & svg {
+      fill: $c !important;
+    }
+  }
 }

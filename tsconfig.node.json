@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "module": "ES2020",
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true
   },
-//  добавим основной файл tsconfig.json в список файлов проекта с помощью директивы include (это понадобится для дальнейшего импорта файла tsconfig в vite.config)
+  //  добавим основной файл tsconfig.json в список файлов проекта с помощью директивы include (это понадобится для дальнейшего импорта файла tsconfig в vite.config)
   "include": ["vite.config.ts", "tsconfig.json"]
 }

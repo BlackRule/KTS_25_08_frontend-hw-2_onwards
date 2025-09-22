@@ -1,0 +1,15 @@
+@use "styles/common" as *;
+
+.searchBar{
+  display: flex;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  @media (max-width: $bp-tablet) {
+    font-size: 18px;
+    gap: var(--space-xxs);
+  }
+
+}
+.searchBar__input{
+  flex-grow: 1;
+}

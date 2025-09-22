@@ -1,6 +1,6 @@
-@import "styles/common";
+ @use "styles/common" as *;
 .card{
-  $length: 348px;/*оказалось что нужно поставить ширину карточки в 348 вместо 360 как в макете и тогда смещения нет.*/
+  $length: 272px;/*оказалось что нужно поставить ширину карточки в 348 вместо 360 как в макете и тогда смещения нет.*/
   display: flex;
   color: $text-primary;
   flex-direction: column;

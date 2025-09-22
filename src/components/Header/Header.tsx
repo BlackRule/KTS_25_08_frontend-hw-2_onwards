@@ -1,10 +1,12 @@
 import {Link} from 'react-router-dom'
+import { observer } from 'mobx-react-lite'
 import PagePadding from 'components/PagePadding'
+import rootStore from 'stores/RootStore'
 import logo from './img/logo.svg'
 import styles from './Header.module.scss'
 
-
-const Header = () => {
+const Header = observer(() => {
+  const user = rootStore.auth.user
   return <header className={styles.header}>
     <PagePadding className={styles.header__inner}>
       <input type="checkbox" id={styles.menu__checkbox}/>
@@ -17,14 +19,14 @@ const Header = () => {
       </div>
       <nav className={styles.nav}>
         <Link to={'/'} className={styles.current}>Products</Link>
-        <Link to={'#'}>Categories</Link>
-        <Link to={'#'}>About Us</Link>
+        <Link to={'/categories'}>Categories</Link>
+        <Link to={'/about'}>About Us</Link>
       </nav>
       <div className={styles.right}>
-        <Link to={'#'} className={styles.bag}/>
-        <Link to={'#'} className={styles.user}/>
+        <Link to={'/cart'} className={styles.bag}/>
+        <Link to={user === null ?'/login':'/user'} className={styles.user}/>
       </div>
     </PagePadding>
   </header>
-}
+})
 export default Header

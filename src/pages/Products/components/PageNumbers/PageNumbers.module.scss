@@ -1,6 +1,7 @@
-@import "styles/common";
+ @use "styles/common" as *;
 .pageNumbers{
   display: flex;
+  align-self: center;
 }
 .pageNumber{
   min-width: 38px;
@@ -8,9 +9,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+}
+
+.right-arrow,.left-arrow{
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.right-arrow{
+  background-image: url('./img/right_black.svg');
+  &.disabled{
+    background-image: url('./img/right_gray.svg');
+
+  }
+}
+
+.left-arrow{
+  background-image: url('./img/left_black.svg');
+  &.disabled{
+    background-image: url('./img/left_gray.svg');
+
+  }
 }
 
 .selected{
   background-color: $button-primary-bg;
   color: $button-primary-text;
+}
+
+#additionalNumbersToggle{
+  display: none;
+}
+
+.additionalNumbers{
+  position: relative;
+}
+
+.options{
+  background-color: white;
+  flex-direction: column;
+  border: 1px solid black;
+  cursor: pointer;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  display: none;
+  #additionalNumbersToggle:checked~&{
+    display: flex;
+  }
+  overflow-y: auto;
 }
